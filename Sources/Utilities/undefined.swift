@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-func undefined<T>(_ message: String = "") -> T {
+public func undefined<T>(_ message: String = "") -> T {
     fatalError("Undefined: \(message)")
 }
  

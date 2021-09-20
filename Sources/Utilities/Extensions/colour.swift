@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color
 {
-    init(hex: String) {
+    public init(hex: String) {
             let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
             var int: UInt64 = 0
             Scanner(string: hex).scanHexInt64(&int)
@@ -32,16 +32,5 @@ extension Color
                 blue:  Double(b) / 255,
                 opacity: Double(a) / 255
             )
-        }
-  /*  static func colorFromHexString(_ hexString: String) -> Color
-    {
-        if let rgbValue = UInt32(hexString, radix: 16)
-        {
-            let red : CGFloat = CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0
-            let green : CGFloat = CGFloat((rgbValue & 0xFF00) >> 8) / 255.0
-            let blue : CGFloat  = CGFloat(rgbValue & 0xFF) / 255.0
-            return Color(red:red, green:green, blue:blue, alpha:1.0);
-        }
-        return Color.black
-    }*/
+        } 
 }

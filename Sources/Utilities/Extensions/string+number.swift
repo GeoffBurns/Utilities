@@ -7,16 +7,16 @@
 import Foundation
 
 extension String  {
-    var isNumber: Bool {
+    public var isNumber: Bool {
         return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits
                                                 .inverted) == nil
     }
-    var isNumberWithCommas: Bool {
+    public var isNumberWithCommas: Bool {
         return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits
                                                 .union(CharacterSet(charactersIn:","))
                                                 .inverted) == nil
     }
-    func measure(unit:Unit) -> String {
+    public func measure(unit:Unit) -> String {
         
         let numberWithoutCommas = replacingOccurrences(of: ",", with: "")
         let numberInDouble = Double(numberWithoutCommas)
