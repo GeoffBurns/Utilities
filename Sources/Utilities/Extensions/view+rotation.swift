@@ -10,7 +10,7 @@
 import Foundation
 import SwiftUI
 
-public struct DeviceRotationViewModifier: ViewModifier {
+struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
 
     func body(content: Content) -> some View {
