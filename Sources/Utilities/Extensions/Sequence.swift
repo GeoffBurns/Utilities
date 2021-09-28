@@ -11,7 +11,7 @@ public extension Sequence {
     
     /// Categorises elements of self into a dictionary, with the keys given by keyFunc
     
-    public func categorise<U : Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U:[Iterator.Element]] {
+    func categorise<U : Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U:[Iterator.Element]] {
         var dict: [U:[Iterator.Element]] = [:]
         for el in self {
             let key = keyFunc(el)
@@ -19,11 +19,11 @@ public extension Sequence {
         }
         return dict
     }
-    public func then<S: Sequence>(_ sequence: S) -> AnySequence<Self.Element> where Self.Element == S.Element {
+    func then<S: Sequence>(_ sequence: S) -> AnySequence<Self.Element> where Self.Element == S.Element {
       var (first, second) = (self.makeIterator(), sequence.makeIterator())
       return AnySequence(AnyIterator { first.next() ?? second.next() })
     }
-    public  func from(_ n: Int, forLength: Int) -> [Iterator.Element] {
+    func from(_ n: Int, forLength: Int) -> [Iterator.Element] {
         
         var result : [Iterator.Element]
         result = []
@@ -40,7 +40,7 @@ public extension Sequence {
         return result
     }
     
-     public func rotate(_ n: Int) -> [Iterator.Element] {
+     func rotate(_ n: Int) -> [Iterator.Element] {
         
         var result : [Iterator.Element]
         result = []
@@ -59,14 +59,14 @@ public extension Sequence {
         }
         return result
     }
-     public var head : Iterator.Element? {
+    var head : Iterator.Element? {
 
         var g = makeIterator()
     
         return g.next() 
     }
     
-    public func notAll(_ predicate: (Iterator.Element) -> Bool) -> Bool {
+    func notAll(_ predicate: (Iterator.Element) -> Bool) -> Bool {
         
         var g = makeIterator()
         
@@ -78,7 +78,7 @@ public extension Sequence {
             else { return false }
         } while true
     }
-    public func all(_ predicate: (Iterator.Element) -> Bool) -> Bool {
+     func all(_ predicate: (Iterator.Element) -> Bool) -> Bool {
         
         var g = makeIterator()
         
@@ -90,7 +90,7 @@ public extension Sequence {
             else { return true }
         } while true
     }
-    public  func some(_ predicate: (Iterator.Element) -> Bool) -> Bool {
+    func some(_ predicate: (Iterator.Element) -> Bool) -> Bool {
         
         var g = makeIterator()
         
@@ -102,7 +102,7 @@ public extension Sequence {
             else { return false }
         } while true
     }
-    public  func none(_ predicate: (Iterator.Element) -> Bool) -> Bool {
+    func none(_ predicate: (Iterator.Element) -> Bool) -> Bool {
         
         var g = makeIterator()
         
@@ -114,7 +114,7 @@ public extension Sequence {
             else { return true }
         } while true
     }
-    public var tail : [Iterator.Element] {
+    var tail : [Iterator.Element] {
         
         var result : [Iterator.Element]
         result = []
