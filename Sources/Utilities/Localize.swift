@@ -23,6 +23,10 @@ public class LocalizationRegistry
     {
         registry.append(repo)
     }
+    public static func register(_ repo : ILocalizationRepository)
+    {
+        shared.register(repo)
+    }
     public func get(_ phrase: String) -> String
     {
         let localisationFromMainBundle = NSLocalizedString(phrase,
@@ -45,5 +49,10 @@ public class LocalizationRegistry
             }
         }
         return phrase
+    }
+    
+    public static func get(_ phrase: String) -> String
+    {
+        return shared.get(phrase)
     }
 }
