@@ -235,7 +235,7 @@ extension String
     
     public var localize : String
     {
-            return NSLocalizedString(self, comment: self)
+        LocalizationRegistry.shared.get(self)
     }
      
     public var isYou : Bool{
